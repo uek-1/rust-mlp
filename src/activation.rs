@@ -216,7 +216,7 @@ mod test {
 
     #[test]
     fn softmax_test() {
-        let items = vec![1.0, 2.0, 3.0];
+        let items = vec![1.0f64, 2.0, 3.0];
         let res = Activation::softmax(items[0], items);
         assert!((res - 0.09003057).abs() < 0.001)
         // close eneough.
@@ -224,14 +224,14 @@ mod test {
 
     #[test]
     fn softmax_derivative_test() {
-        let classes = vec![3.0, 4.0, 5.0];
+        let classes = vec![3.0f64, 4.0, 5.0];
         let res = Activation::softmax_derivative(0, classes);
         assert!((res[0] - 0.08192506).abs() < 0.001);
     }
 
     #[test]
     fn softmax_derivative_vector_test() {
-        let classes = vec![1.0, 2.0, 3.0];
+        let classes = vec![1.0f64, 2.0, 3.0];
         let res = Activation::softmax_derivative(0, classes);
         println!("{res:?}");
 
